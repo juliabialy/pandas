@@ -24,6 +24,8 @@ print(dane1.max())
 
 
 
+
+
 lista2 = [31,28,30,31]
 indeksy = ["styczen","luty","marzec","kwiecien"]
 dane2 = pd.Series(lista2,index=indeksy)
@@ -51,6 +53,7 @@ dane2 = pd.Series(lista2,index=indeksy)
 # dane.head() - nagłówel
 # dane.tail() - stopka
 # dane.head().mean() - srednia wartość z 5 pierwszych elementów -> mean() - średnia
+
 
 
 
