@@ -35,7 +35,7 @@ for k in df2["Zarobki"]:
         ZarobkiK.append(float((k[-4]).replace(' ','')))
 
 
-
+#print(df[["USD","PLN"]][df["USD"]>2000].mean())
 
 
 
