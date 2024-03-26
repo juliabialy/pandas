@@ -1,0 +1,45 @@
+import pandas as pd
+
+csv1 = pd.read_csv("temperature.csv",sep=";")
+
+df1 = pd.DataFrame(csv1)
+print(df1)
+#
+print("Ilość rekordów w obiekcie DF wynosi: ",len(df1))
+#
+print(df1.head(100))
+#
+print(df1.tail(100))
+
+print(df1[["Country","City"]])
+
+#7
+temperatura= df1[df1['Country']=='Poland']
+
+#8
+tempw = df1[(df1['City'] == 'Wroclaw')&(df1["year"]>=1900) & (df1["year"]<=1999)]
+print(tempw)
+#9
+
+#10
+min_t = df1['AverageTemperatureFahr'].max()
+max_t = df1['AverageTemperatureFahr'].min()
+
+#11
+df1.rename(columns={'AverageTemperatureFahr':'AvgTmpF'},inplace = True)
+print(df1)
+df1.rename(columns={'AverageTemperatureUncertaintyFahr':'AvgTmpUnF'},inplace = True)
+
+#12
+def F2C(tmp):
+    return 5*(tmp-32)/9
+
+df1["AvgTmpC"] = df1["AvgTmpF"].map(F2C)
+df1['AvgTmpUnC'] = df1["AvgTmpUnF"].map(F2C)
+
+del df1["AvgTmpUnF"]
+
+def Latitude(lat):
+    if lat[-1] == 'N':
+        return float(lat[:-1])
+    print(df1)
