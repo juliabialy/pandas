@@ -42,4 +42,9 @@ del df1["AvgTmpUnF"]
 def Latitude(lat):
     if lat[-1] == 'N':
         return float(lat[:-1])
-    print(df1)
+    elif lat[:-1] == 'S':
+        return -float(lat[:-1])
+    else:
+        return 0.0
+df1['Latitude'] = df1['Latitude'].map(Latitude)
+print(df1)
